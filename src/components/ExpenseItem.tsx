@@ -1,11 +1,16 @@
 import "./ExpenseItem.css";
-function ExpenseItem() {
+
+function ExpenseItem(props: { date: Date; title: string; amount: number }) {
   return (
     <div className="expense-item">
-      <div>21 Dec 2021</div>
+      <div>
+        <div>{props.date.toLocaleString("en-US", { month: "long" })}</div>
+        <div>{props.date.toLocaleString("en-US", { day: "2-digit" })}</div>
+        <div>{props.date.getFullYear()}</div>
+      </div>
       <div className="expense-item__description">
-        <h2>Car Insurance</h2>
-        <div className="expense-item__price">$294.67</div>
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   );
