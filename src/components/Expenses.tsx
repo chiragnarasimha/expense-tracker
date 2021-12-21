@@ -11,8 +11,14 @@ function Expenses(props: {
 }) {
   return (
     <div className="expenses">
-      {props.expenses.map(({ id, title, amount, date }) => {
-        return <ExpenseItem date={date} title={title} amount={amount} />;
+      {props.expenses.map((mapItem) => {
+        return (
+          <ExpenseItem
+            date={mapItem.date}
+            title={mapItem.title}
+            amount={mapItem.amount}
+          />
+        );
       })}
     </div>
   );
