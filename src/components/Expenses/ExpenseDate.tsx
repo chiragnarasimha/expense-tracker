@@ -4,7 +4,7 @@ import "./ExpenseDate.css";
  * @param props Input the date of the expense as a Date object
  * @constructor
  */
-function ExpenseDate(props: { date: Date }) {
+const ExpenseDate = (props: { date: Date }) => {
   return (
     <div className="expense-date">
       <div className="expense-date__month">
@@ -16,5 +16,5 @@ function ExpenseDate(props: { date: Date }) {
       <div className="expense-date__year">{props.date.getFullYear()}</div>
     </div>
   );
-}
+};
 export default ExpenseDate;

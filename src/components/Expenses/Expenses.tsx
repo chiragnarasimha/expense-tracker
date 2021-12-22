@@ -7,9 +7,9 @@ import Card from "../UI/Card";
  * @param props.expenses Object that contains all the details of the expenses
  * @constructor
  */
-function Expenses(props: {
+const Expenses = (props: {
   expenses: { id: string; title: string; amount: number; date: Date }[];
-}) {
+}) => {
   return (
     <Card className="expenses">
       {props.expenses.map((mapItem) => {
@@ -23,7 +23,7 @@ function Expenses(props: {
       })}
     </Card>
   );
-}
+};
 
 export default Expenses;
 

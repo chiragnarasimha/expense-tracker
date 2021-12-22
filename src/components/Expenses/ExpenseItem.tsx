@@ -9,7 +9,7 @@ import Card from "../UI/Card";
  * @param props.amount number - Amount spent for this Expense
  * @constructor
  */
-function ExpenseItem(props: { date: Date; title: string; amount: number }) {
+const ExpenseItem = (props: { date: Date; title: string; amount: number }) => {
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
@@ -19,6 +19,6 @@ function ExpenseItem(props: { date: Date; title: string; amount: number }) {
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
