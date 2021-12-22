@@ -1,5 +1,6 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
+import Card from "../UI/Card";
 
 /**
  * This component is to display the Expense Items on the page
@@ -10,13 +11,13 @@ import ExpenseDate from "./ExpenseDate";
  */
 function ExpenseItem(props: { date: Date; title: string; amount: number }) {
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 

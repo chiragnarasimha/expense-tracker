@@ -1,5 +1,6 @@
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
+import Card from "../UI/Card";
 
 /**
  * Will take all the details of expenses and them display them on the page
@@ -10,7 +11,7 @@ function Expenses(props: {
   expenses: { id: string; title: string; amount: number; date: Date }[];
 }) {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       {props.expenses.map((mapItem) => {
         return (
           <ExpenseItem
@@ -20,7 +21,7 @@ function Expenses(props: {
           />
         );
       })}
-    </div>
+    </Card>
   );
 }
 
