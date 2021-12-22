@@ -12,15 +12,23 @@ const Expenses = (props: {
 }) => {
   return (
     <Card className="expenses">
-      {props.expenses.map((mapItem) => {
-        return (
-          <ExpenseItem
-            date={mapItem.date}
-            title={mapItem.title}
-            amount={mapItem.amount}
-          />
-        );
-      })}
+      {props.expenses.map(
+        (mapItem: {
+          amount: number;
+          date: Date;
+          id: string;
+          title: string;
+        }) => {
+          return (
+            <ExpenseItem
+              id={mapItem.id}
+              date={mapItem.date}
+              title={mapItem.title}
+              amount={mapItem.amount}
+            />
+          );
+        }
+      )}
     </Card>
   );
 };
