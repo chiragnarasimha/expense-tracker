@@ -11,7 +11,7 @@ const Expenses = (props: {
   expenses: { id: string; title: string; amount: number; date: Date }[];
 }) => {
   return (
-    <Card className="expenses" key={Math.random()}>
+    <Card className="expenses">
       {props.expenses.map(
         (mapItem: {
           amount: number;

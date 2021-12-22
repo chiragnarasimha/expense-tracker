@@ -21,7 +21,7 @@ const ExpenseItem = (props: {
     setTitle("Updated");
   };
   return (
-    <Card className="expense-item" key={Math.random()}>
+    <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
