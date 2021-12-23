@@ -21,7 +21,7 @@ const Expenses = (props: {
         }) => {
           return (
             <ExpenseItem
-              key={Math.random()} // In react, when we are creating an item in a list, it is key is necessary to overcome the warning message -> Each child in a list should have a unique "key" prop
+              key={Math.random()} // In react, when we are creating an item in a list, key is necessary to overcome the warning message -> Each child in a list should have a unique "key" prop
               id={mapItem.id}
               date={mapItem.date}
               title={mapItem.title}

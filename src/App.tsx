@@ -23,9 +23,23 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  /**
+   * This function is used to extract the data from the NewExpense Child component and then append that data to the
+   * expenses object
+   * @param expenses The new expense entered by the users.
+   */
+  const addExpenseHandler = (expenses: {
+    id: string;
+    title: string;
+    amount: number;
+    date: Date;
+  }) => {
+    console.log(`In App.js`);
+    console.log(expenses);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );
