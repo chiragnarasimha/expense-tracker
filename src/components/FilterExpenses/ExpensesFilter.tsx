@@ -1,13 +1,20 @@
-import React from "react";
-
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./ExpensesFilter.css";
 
-const ExpensesFilter = () => {
+/**
+ * This components will allow the users to filter their expenses based on the input year
+ * @param props.onChangeFilter Will allow the value selected by the user to be passed to the parent element
+ * @constructor
+ */
+const ExpensesFilter = (props: { onChangeFilter: Function }) => {
+  const dropdownChangeHandler = (event: ChangeEvent<{ value: string }>) => {
+    props.onChangeFilter(event.target.value);
+  };
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        <select>
+        <select onChange={dropdownChangeHandler}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
