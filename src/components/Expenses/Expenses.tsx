@@ -28,30 +28,38 @@ const Expenses = (props: {
     }
   );
 
+  /* Condition to display the correct error message to the user*/
+  let expensesContent: JSX.Element[] = [
+    <p key={Math.random()}>No Expense Found!</p>,
+  ];
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map(
+      (expenseItem: {
+        amount: number;
+        date: Date;
+        id: string;
+        title: string;
+      }) => {
+        return (
+          <ExpenseItem
+            key={expenseItem.id} // In react, when we are creating an item in a list, key is necessary to overcome the warning message -> Each child in a list should have a unique "key" prop
+            // id={expenseItem.id}
+            date={expenseItem.date}
+            title={expenseItem.title}
+            amount={expenseItem.amount}
+          />
+        );
+      }
+    );
+  }
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         onChangeFilter={filterChangeHandler}
         selectedYear={filteredYear}
       />
-      {filteredExpenses.map(
-        (expenseItem: {
-          amount: number;
-          date: Date;
-          id: string;
-          title: string;
-        }) => {
-          return (
-            <ExpenseItem
-              key={expenseItem.id} // In react, when we are creating an item in a list, key is necessary to overcome the warning message -> Each child in a list should have a unique "key" prop
-              // id={expenseItem.id}
-              date={expenseItem.date}
-              title={expenseItem.title}
-              amount={expenseItem.amount}
-            />
-          );
-        }
-      )}
+      {expensesContent}
     </Card>
   );
 };
