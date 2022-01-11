@@ -12,14 +12,18 @@ import ExpensesFilter from "../FilterExpenses/ExpensesFilter";
 const Expenses = (props: {
   expenses: { id: string; title: string; amount: number; date: Date }[];
 }) => {
-  const [filteredYear, setFilteredYear] = useState("2019");
+  const [filteredYear, setFilteredYear] = useState("2021");
   const filterChangeHandler = (selectedYear: string) => {
     setFilteredYear(selectedYear);
   };
   return (
     <Card className="expenses">
+      <ExpensesFilter
+        onChangeFilter={filterChangeHandler}
+        selectedYear={filteredYear}
+      />
       {props.expenses.map(
-        (mapItem: {
+        (expenseItem: {
           amount: number;
           date: Date;
           id: string;
@@ -27,13 +31,12 @@ const Expenses = (props: {
         }) => {
           return (
             <div key={Math.random()}>
-              <ExpensesFilter onChangeFilter={filterChangeHandler} />
               <ExpenseItem
                 key={Math.random()} // In react, when we are creating an item in a list, key is necessary to overcome the warning message -> Each child in a list should have a unique "key" prop
-                id={mapItem.id}
-                date={mapItem.date}
-                title={mapItem.title}
-                amount={mapItem.amount}
+                id={expenseItem.id}
+                date={expenseItem.date}
+                title={expenseItem.title}
+                amount={expenseItem.amount}
               />
             </div>
           );
