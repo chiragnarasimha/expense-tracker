@@ -10,7 +10,7 @@ import Card from "../UI/Card";
  * @constructor
  */
 const ExpenseItem = (props: {
-  id: string;
+  // id: string;
   date: Date;
   title: string;
   amount: number;
