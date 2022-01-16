@@ -1,5 +1,6 @@
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
+import { useState } from "react";
 
 /**
  * This is the parent component that will house the form where the users can enter the new expenses
@@ -22,10 +23,28 @@ const NewExpense = (props: { onAddExpense: Function }) => {
     };
     console.log(expenseData);
     props.onAddExpense(expenseData);
+    setIsEditing(false);
+  };
+
+  /* This use state will allow the user to toggle the new expense form only when the Add New Expense button is pressed  */
+  const [isEditing, setIsEditing] = useState(false);
+  const startEditingHandler = () => {
+    setIsEditing(true);
+  };
+  const stopEditingHandler = () => {
+    setIsEditing(false);
   };
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
+      {!isEditing && (
+        <button onClick={startEditingHandler}>Add New Expense</button>
+      )}
+      {isEditing && (
+        <ExpenseForm
+          onSaveExpenseData={onSaveExpenseDataHandler}
+          onCancel={stopEditingHandler}
+        />
+      )}
     </div>
   );
 };

@@ -7,7 +7,10 @@ import "./ExpenseForm.css";
  * component
  * @constructor
  */
-const ExpenseForm = (props: { onSaveExpenseData: Function }) => {
+const ExpenseForm = (props: {
+  onSaveExpenseData: Function;
+  onCancel: React.MouseEventHandler;
+}) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   /**
    * Change the title in the expense form
@@ -54,6 +57,7 @@ const ExpenseForm = (props: { onSaveExpenseData: Function }) => {
     setEnteredAmount("");
     setEnteredDate("");
   };
+
   return (
     <form onSubmit={submitHandler}>
       <div className={"new-expense__controls"}>
@@ -87,6 +91,9 @@ const ExpenseForm = (props: { onSaveExpenseData: Function }) => {
         </div>
       </div>
       <div className={"new-expense__actions"}>
+        <button type={"button"} onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type={"submit"}>Add Expense</button>
       </div>
     </form>
