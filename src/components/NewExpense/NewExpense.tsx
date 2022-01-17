@@ -21,7 +21,7 @@ const NewExpense = (props: { onAddExpense: Function }) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    console.log(expenseData);
+    console.log(`NewExpense`, expenseData);
     props.onAddExpense(expenseData);
     setIsEditing(false);
   };

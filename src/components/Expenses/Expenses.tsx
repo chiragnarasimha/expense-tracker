@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import { useState } from "react";
 import ExpensesFilter from "../FilterExpenses/ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpenseChart from "./ExpenseChart";
 
 /**
  * Will take all the details of expenses and them display them on the page
@@ -34,6 +35,7 @@ const Expenses = (props: {
         onChangeFilter={filterChangeHandler}
         selectedYear={filteredYear}
       />
+      <ExpenseChart expenses={filteredExpenses} />
       <ExpensesList expenses={filteredExpenses} />
     </Card>
   );
