@@ -1,6 +1,7 @@
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 /**
  * This is the parent component that will house the form where the users can enter the new expenses
@@ -8,6 +9,7 @@ import { useState } from "react";
  * @constructor
  */
 const NewExpense = (props: { onAddExpense: Function }) => {
+  console.log(uuid());
   /**
    * This function is used to extract the data from the ExpenseForm child component to the parent NewExpense Component
    * @param enteredExpenseData This is the data entered by the user for a new expense
@@ -19,7 +21,7 @@ const NewExpense = (props: { onAddExpense: Function }) => {
   }) => {
     const expenseData = {
       ...enteredExpenseData,
-      id: Math.random().toString(),
+      id: uuid(),
     };
     console.log(`NewExpense`, expenseData);
     props.onAddExpense(expenseData);
