@@ -8,7 +8,7 @@ import "./ExpenseForm.css";
  * @constructor
  */
 const ExpenseForm = (props: {
-  onSaveExpenseData: Function;
+  onSaveExpenseData: Function; //  This function is used to pass data to the NewExpense component
   onCancel: React.MouseEventHandler;
 }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -50,6 +50,7 @@ const ExpenseForm = (props: {
       date: new Date(enteredDate),
     };
 
+    /* Pass the expense data to the NewExpense Component */
     props.onSaveExpenseData(expenseData);
 
     /* Clear the form data after the user has input their details */

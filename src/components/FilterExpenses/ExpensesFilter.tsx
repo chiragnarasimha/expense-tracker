@@ -7,7 +7,7 @@ import "./ExpensesFilter.css";
  * @constructor
  */
 const ExpensesFilter = (props: {
-  onChangeFilter: Function;
+  onChangeFilter: Function; // This function is used to pass the selected year back to the Expenses.tsx file
   selectedYear: string;
 }) => {
   const dropdownChangeHandler = (event: ChangeEvent<{ value: string }>) => {

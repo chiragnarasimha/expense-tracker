@@ -8,8 +8,9 @@ import { v4 as uuid } from "uuid";
  * @param props.onAddExpense This is the data extracted from ExpenseForm.tsx and will be fed through to the App.jsx
  * @constructor
  */
-const NewExpense = (props: { onAddExpense: Function }) => {
-  console.log(uuid());
+const NewExpense = (props: {
+  onAddExpense: Function; // This function is used to the expense data back to App.tsx
+}) => {
   /**
    * This function is used to extract the data from the ExpenseForm child component to the parent NewExpense Component
    * @param enteredExpenseData This is the data entered by the user for a new expense
