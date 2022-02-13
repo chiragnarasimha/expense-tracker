@@ -37,8 +37,7 @@ const App = () => {
     amount: number;
     date: Date;
   }) => {
-    console.log(`In App.js`);
-    console.log(expense);
+    console.log(`App.tsx`, expense);
     setExpenses(
       (
         prevExpense: {

@@ -1,8 +1,9 @@
 import "./Expenses.css";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import { useState } from "react";
 import ExpensesFilter from "../FilterExpenses/ExpensesFilter";
+import ExpensesList from "./ExpensesList";
+import ExpenseChart from "./ExpenseChart";
 
 /**
  * Will take all the details of expenses and them display them on the page
@@ -34,24 +35,8 @@ const Expenses = (props: {
         onChangeFilter={filterChangeHandler}
         selectedYear={filteredYear}
       />
-      {filteredExpenses.map(
-        (expenseItem: {
-          amount: number;
-          date: Date;
-          id: string;
-          title: string;
-        }) => {
-          return (
-            <ExpenseItem
-              key={expenseItem.id} // In react, when we are creating an item in a list, key is necessary to overcome the warning message -> Each child in a list should have a unique "key" prop
-              // id={expenseItem.id}
-              date={expenseItem.date}
-              title={expenseItem.title}
-              amount={expenseItem.amount}
-            />
-          );
-        }
-      )}
+      <ExpenseChart expenses={filteredExpenses} />
+      <ExpensesList expenses={filteredExpenses} />
     </Card>
   );
 };
